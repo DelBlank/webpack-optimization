@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base", "prettier", "plugin:react/recommended", "plugin:jsx-a11y/recommended"],
+  "plugins": ["prettier", "import", "react", "jsx-a11y"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "semi": false,
+        "singleQuote": true
+      }
+    ],
+    "class-methods-use-this": "warn",
+    "consistent-return": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["demo/*", "server.js", "webpack.config.js"]}]
+  },
+  "env": {
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
+}
