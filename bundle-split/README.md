@@ -14,7 +14,8 @@
         vendor: {
           test: /\/node_modules\//,
           name: 'vendor',
-          chunks: 'initial'
+          chunks: 'initial',
+          enforce: true
         }
       }
     },

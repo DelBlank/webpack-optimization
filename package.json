@@ -4,6 +4,7 @@
   "description": "webpack 优化",
   "scripts": {
     "bundle-split": "webpack --config bundle-split/webpack.config.js",
+    "code-split": "webpack --config code-split/webpack.config.js",
     "lint": "eslint \"./**/*.{js,jsx}\" --fix --format codeframe",
     "lint-staged": "lint-staged"
   },

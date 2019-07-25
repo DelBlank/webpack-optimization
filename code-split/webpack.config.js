@@ -42,9 +42,9 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          test: /\/(react|react-dom)\//,
+          test: /\/react\//,
           name: 'vendor',
-          chunks: 'initial',
+          chunks: 'all',
           enforce: true
         }
       }
@@ -55,11 +55,10 @@ module.exports = {
     new HappyPack({
       id: 'js',
       threadPool: happyThreadPool,
-      loaders: ['babel-loader?cacheDirectory=true'],
+      loaders: ['babel-loader'],
       verbose: false,
       verboseWhenProfiling: false
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
 }
