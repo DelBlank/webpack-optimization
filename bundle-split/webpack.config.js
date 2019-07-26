@@ -59,7 +59,6 @@ module.exports = {
       verbose: false,
       verboseWhenProfiling: false
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
 }
