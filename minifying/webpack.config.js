@@ -1,9 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 const os = require('os')
+const webpack = require('webpack')
 const HappyPack = require('happypack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const cssnano = require('cssnano')
 
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
@@ -64,7 +69,7 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         use: [
-          // MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -114,6 +119,24 @@ module.exports = {
       filename: 'index.html',
       template: './index.html',
       chunksSortMode: 'none'
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunks: 'all'
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessor: cssnano,
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }]
+      },
+      canPrint: true
+    }),
+    new ImageminPlugin({
+      jpegtran: { progressive: true, quality: 100 },
+      pngquant: {
+        quality: '95-100'
+      }
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 }
