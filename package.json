@@ -7,6 +7,7 @@
     "code-split": "webpack --config code-split/webpack.config.js",
     "tidy-up": "webpack --config tidy-up/webpack.config.js",
     "minifying": "webpack --config minifying/webpack.config.js",
+    "tree-shaking": "webpack --config tree-shaking/webpack.config.js",
     "lint": "eslint \"./**/*.{js,jsx}\" --fix --format codeframe",
     "lint-staged": "lint-staged"
   },
