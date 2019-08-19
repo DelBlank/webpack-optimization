@@ -7,3 +7,4 @@ webpack 优化
 - [minifying](https://github.com/DelBlank/webpack-optimization/tree/master/minifying)
 - [tidy-up](https://github.com/DelBlank/webpack-optimization/tree/master/tidy-up)
 - [tree-shaking](https://github.com/DelBlank/webpack-optimization/tree/master/tree-shaking)
+- [environment-variables](https://github.com/DelBlank/webpack-optimization/tree/master/env-variables)
